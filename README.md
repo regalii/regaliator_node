@@ -2,6 +2,13 @@
 
 A Node.js client for connecting to the Regalii API.
 
+The client is tested and compatible with the following versions of Node.js:
+* v4.7.2 ;
+* v5.12.0 ;
+* v6.9.4 ;
+* v7.4.0.
+
+
 ## Usage
 
 Example:
@@ -57,8 +64,19 @@ Coming soon.
 
 ## Test
 
-```
+To test with your current version of Node.js:
+```bash
 npm test
+```
+
+If you want to test in multiple versions (requires [Docker](https://www.docker.com)), run:
+```bash
+# For the first time:
+npm install -g node-docker-test
+ndt --setup
+
+# Then, each time you want:
+ndt
 ```
 
 ## Todo
