@@ -3,6 +3,13 @@
   "version": "0.0.1-pre",
   "description": "Nodejs client library for connecting to the Regalii API",
   "main": "index.js",
+  "config": {
+    "ndt": {
+      "versions": [
+        "major"
+      ]
+    }
+  },
   "scripts": {
     "test": "mocha --recursive"
   },
