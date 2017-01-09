@@ -5,8 +5,6 @@ const assert = require('chai').assert;
 const ProxyServer = require('../proxy_server');
 const Regaliator = require('../../lib/regaliator');
 
-const DEFAULT_ARGS = require('../default_args');
-
 describe('Regaliator', () => {
     describe('Rates', () => {
         describe('History', () => {
@@ -20,10 +18,10 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .rates()
-                    .then(({ body }) => {
-                      assert.propertyVal(body, 'MXN', 16.488);
+                    .then((res) => {
+                      assert.propertyVal(res.body, 'MXN', 16.488);
                     });
             });
         });

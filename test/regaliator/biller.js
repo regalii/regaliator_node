@@ -5,8 +5,6 @@ const assert = require('chai').assert;
 const ProxyServer = require('../proxy_server');
 const Regaliator = require('../../lib/regaliator');
 
-const DEFAULT_ARGS = require('../default_args');
-
 describe('Regaliator', () => {
     describe('Billers', () => {
         describe('Credentials', () => {
@@ -16,10 +14,10 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .billers('credentials')
-                    .then(({ body }) => {
-                      assert.propertyVal(body['billers'][0], 'id', 6330);
+                    .then((res) => {
+                      assert.propertyVal(res.body['billers'][0], 'id', 6330);
                     });
             });
         });
@@ -31,10 +29,10 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .billers('topups')
-                    .then(({ body }) => {
-                      assert.propertyVal(body['billers'][0], 'id', 4842);
+                    .then((res) => {
+                      assert.propertyVal(res.body['billers'][0], 'id', 4842);
                     });
             });
         });
@@ -46,10 +44,10 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .billers('utilities')
-                    .then(({ body }) => {
-                      assert.propertyVal(body['billers'][0], 'id', 3261);
+                    .then((res) => {
+                      assert.propertyVal(res.body['billers'][0], 'id', 3261);
                     });
             });
         });

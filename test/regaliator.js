@@ -5,13 +5,11 @@ const assert = require('chai').assert;
 const Regaliator = require('../lib/regaliator');
 const Request = require('../lib/request');
 
-const DEFAULT_ARGS = require('./default_args');
-
 describe('Regaliator', () => {
   it('should be a Function', () => {
     assert.isFunction(Regaliator);
-    assert.instanceOf(new Regaliator(...DEFAULT_ARGS), Regaliator);
-    assert.instanceOf(Regaliator(...DEFAULT_ARGS), Regaliator);
+    assert.instanceOf(new Regaliator('http://localhost:4567', 'key', 'secret'), Regaliator);
+    assert.instanceOf(Regaliator('http://localhost:4567', 'key', 'secret'), Regaliator);
   });
 
   it('should accept 3 arguments', () => {

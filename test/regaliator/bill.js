@@ -5,8 +5,6 @@ const assert = require('chai').assert;
 const ProxyServer = require('../proxy_server');
 const Regaliator = require('../../lib/regaliator');
 
-const DEFAULT_ARGS = require('../default_args');
-
 describe('Regaliator', () => {
     describe('Bills', () => {
         describe('Create bill with login and password', () => {
@@ -20,9 +18,9 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .createAccountNumberBill(2, '8081969')
-                    .then(({ body }) => assert.propertyVal(body, 'id', 5));
+                    .then((res) => assert.propertyVal(res.body, 'id', 5));
             });
         });
 
@@ -33,10 +31,10 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .bills()
-                    .then(({ body }) => {
-                        assert.propertyVal(body['bills'][0], 'id', 440);
+                    .then((res) => {
+                        assert.propertyVal(res.body['bills'][0], 'id', 440);
                     });
             });
         });
@@ -48,9 +46,9 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .showBill(5)
-                    .then(({ body }) => assert.propertyVal(body, 'id', 5));
+                    .then((res) => assert.propertyVal(res.body, 'id', 5));
             });
         });
 
@@ -61,9 +59,9 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .showBillXdata(5)
-                    .then(({ body }) => assert.propertyVal(body, 'id', 674101));
+                    .then((res) => assert.propertyVal(res.body, 'id', 674101));
             });
         });
 
@@ -74,9 +72,9 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .xpayBill(5, { amount: 758.0, currency: 'RD' })
-                    .then(({ body }) => assert.propertyVal(body, 'id', 23));
+                    .then((res) => assert.propertyVal(res.body, 'id', 23));
             });
         });
 
@@ -95,9 +93,9 @@ describe('Regaliator', () => {
             after('Killing fake server', (done) => proxy.close(done));
 
             it('should return JSON body', () => {
-                return new Regaliator(...DEFAULT_ARGS)
+                return new Regaliator('http://localhost:4567', 'key', 'secret')
                     .updateBill(5, { name_on_account: 'Test name' })
-                    .then(({ body }) => assert.propertyVal(body, 'id', 5));
+                    .then((res) => assert.propertyVal(res.body, 'id', 5));
             });
         });
     });
