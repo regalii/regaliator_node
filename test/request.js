@@ -32,7 +32,7 @@ describe('Request', () => {
 
     it('should be GET method', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.propertyVal(res.req, 'method', 'GET');
         });
@@ -40,7 +40,7 @@ describe('Request', () => {
 
     it('should have path with QueryString', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.propertyVal(res.req, 'path', '/fake?q%5Bid_eq%5D=1');
         });
@@ -48,7 +48,7 @@ describe('Request', () => {
 
     it('should setup Content-Type', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-type', 'application/json');
         });
@@ -56,7 +56,7 @@ describe('Request', () => {
 
     it('should setup Accept', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.accept', 'application/vnd.regalii.v3.0+json');
         });
@@ -64,7 +64,7 @@ describe('Request', () => {
 
     it('should setup Date', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.match(res.req['_headers']['date'], DATE_REGEX);
         });
@@ -72,7 +72,7 @@ describe('Request', () => {
 
     it('should setup Content-MD5', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-md5', '');
         });
@@ -80,7 +80,7 @@ describe('Request', () => {
 
     it('should setup Authorization', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           assert.match(res.req['_headers']['authorization'], AUTH_REGEX);
         });
@@ -95,7 +95,7 @@ describe('Request', () => {
 
     it('should be POST method', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.propertyVal(res.req, 'method', 'POST');
         });
@@ -103,7 +103,7 @@ describe('Request', () => {
 
     it('should have path without QueryString', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.propertyVal(res.req, 'path', '/fake');
         });
@@ -111,7 +111,7 @@ describe('Request', () => {
 
     it('should setup Content-Type', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-type', 'application/json');
         });
@@ -119,7 +119,7 @@ describe('Request', () => {
 
     it('should setup Accept', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.accept', 'application/vnd.regalii.v3.0+json');
         });
@@ -127,7 +127,7 @@ describe('Request', () => {
 
     it('should setup Date', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.match(res.req['_headers']['date'], DATE_REGEX);
         });
@@ -135,7 +135,7 @@ describe('Request', () => {
 
     it('should setup Content-MD5', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-md5', '+8JLzHoXlHWPwTJ/z+va9g==');
         });
@@ -143,7 +143,7 @@ describe('Request', () => {
 
     it('should setup Authorization', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           assert.match(res.req['_headers']['authorization'], AUTH_REGEX);
         });
@@ -160,7 +160,7 @@ describe('Request', () => {
 
     it('should be PATCH method', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.propertyVal(res.req, 'method', 'PATCH');
         });
@@ -168,7 +168,7 @@ describe('Request', () => {
 
     it('should have path without QueryString', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.propertyVal(res.req, 'path', '/fake');
         });
@@ -176,7 +176,7 @@ describe('Request', () => {
 
     it('should setup Content-Type', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-type', 'application/json');
         });
@@ -184,7 +184,7 @@ describe('Request', () => {
 
     it('should setup Accept', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.accept', 'application/vnd.regalii.v3.0+json');
         });
@@ -192,7 +192,7 @@ describe('Request', () => {
 
     it('should setup Date', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.match(res.req['_headers']['date'], DATE_REGEX);
         });
@@ -200,7 +200,7 @@ describe('Request', () => {
 
     it('should setup Content-MD5', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.deepPropertyVal(res.req, '_headers.content-md5', '+8JLzHoXlHWPwTJ/z+va9g==');
         });
@@ -208,7 +208,7 @@ describe('Request', () => {
 
     it('should setup Authorization', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           assert.match(res.req['_headers']['authorization'], AUTH_REGEX);
         });
@@ -225,7 +225,7 @@ describe('Request', () => {
 
     it('should set a right AuthHash for GET request', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .get('/fake', { 'q[id_eq]': 1 })
+        .get('/fake', {'q[id_eq]': 1})
         .then((res) => {
           let sha1 = crypto.createHmac('sha1', 'secret')
             .update(['application/json', '', '/fake', res.req['_headers']['date']].join(','))
@@ -237,7 +237,7 @@ describe('Request', () => {
 
     it('should set a right AuthHash for POST request', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .post('/fake', { hello: 'world' })
+        .post('/fake', {hello: 'world'})
         .then((res) => {
           let sha1 = crypto.createHmac('sha1', 'secret')
             .update(['application/json', '+8JLzHoXlHWPwTJ/z+va9g==', '/fake', res.req['_headers']['date']].join(','))
@@ -249,7 +249,7 @@ describe('Request', () => {
 
     it('should set a right AuthHash for PATCH request', () => {
       return new Request('http://localhost:4567', 'key', 'secret')
-        .patch('/fake', { hello: 'world' })
+        .patch('/fake', {hello: 'world'})
         .then((res) => {
           let sha1 = crypto.createHmac('sha1', 'secret')
             .update(['application/json', '+8JLzHoXlHWPwTJ/z+va9g==', '/fake', res.req['_headers']['date']].join(','))

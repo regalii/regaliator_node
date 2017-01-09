@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
   res.statusCode = 200;
 
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -15,7 +15,26 @@ module.exports = function(req, res) {
   res.setHeader('Date', 'Wed, 23 Mar 2016 00:31:47 GMT');
   res.setHeader('Connection', 'close');
 
-  res.write(new Buffer(JSON.stringify({"bills":[{"id":440,"biller_id":9144,"account_number":"4222422249","name_on_account":null,"due_date":null,"balance":null,"balance_currency":"USD","balance_in_chain_currency":null,"balance_updated_at":null,"created_at":"2016-12-20T12:15:41Z","last_paid_at":null,"error_with_account":false,"error_message":null,"status":"pristine","migrated_at":null,"mfa_challenges":[]}]})));
+  res.write(new Buffer(JSON.stringify({
+    "bills": [{
+      "id": 440,
+      "biller_id": 9144,
+      "account_number": "4222422249",
+      "name_on_account": null,
+      "due_date": null,
+      "balance": null,
+      "balance_currency": "USD",
+      "balance_in_chain_currency": null,
+      "balance_updated_at": null,
+      "created_at": "2016-12-20T12:15:41Z",
+      "last_paid_at": null,
+      "error_with_account": false,
+      "error_message": null,
+      "status": "pristine",
+      "migrated_at": null,
+      "mfa_challenges": []
+    }]
+  })));
   res.end();
 
   return __filename;

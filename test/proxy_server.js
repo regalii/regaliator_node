@@ -11,11 +11,11 @@ function ProxyServer(tape) {
 
   this.proxy = http.createServer(tape);
 
-  this.listen = function(done) {
+  this.listen = function (done) {
     this.proxy.listen(4567, done);
   };
 
-  this.close = function(done) {
+  this.close = function (done) {
     this.proxy.close(done);
   };
 }

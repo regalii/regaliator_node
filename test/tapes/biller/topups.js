@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
   res.statusCode = 200;
 
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -15,7 +15,21 @@ module.exports = function(req, res) {
   res.setHeader('Date', 'Tue, 22 Mar 2016 19:56:13 GMT');
   res.setHeader('Connection', 'close');
 
-  res.write(new Buffer(JSON.stringify({"billers":[{"id":4842,"name":"Alegro","country":"EC","currency":"USD","biller_type":"Cell","bill_type":"phone_number","available_topup_amounts":["6.00","12.00"],"topup_fxrate":null,"mask":null,"topup_commission":11.0,"account_number_digits":"8"}]})));
+  res.write(new Buffer(JSON.stringify({
+    "billers": [{
+      "id": 4842,
+      "name": "Alegro",
+      "country": "EC",
+      "currency": "USD",
+      "biller_type": "Cell",
+      "bill_type": "phone_number",
+      "available_topup_amounts": ["6.00", "12.00"],
+      "topup_fxrate": null,
+      "mask": null,
+      "topup_commission": 11.0,
+      "account_number_digits": "8"
+    }]
+  })));
   res.end();
 
   return __filename;

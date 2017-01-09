@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
   res.statusCode = 401;
 
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -14,7 +14,7 @@ module.exports = function(req, res) {
   res.setHeader('Date', 'Tue, 22 Mar 2016 19:36:08 GMT');
   res.setHeader('Connection', 'close');
 
-  res.write(new Buffer(JSON.stringify({"message":"Unauthorized"})));
+  res.write(new Buffer(JSON.stringify({"message": "Unauthorized"})));
   res.end();
 
   return __filename;

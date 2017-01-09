@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
   res.statusCode = 200;
 
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -15,7 +15,22 @@ module.exports = function(req, res) {
   res.setHeader('Date', 'Tue, 22 Mar 2016 19:56:13 GMT');
   res.setHeader('Connection', 'close');
 
-  res.write(new Buffer(JSON.stringify({"billers":[{"id":3261,"name":"Adani Energy Limited","country":"IN","currency":"INR","biller_type":"Gas","bill_type":"account_number","can_check_balance":false,"mask":"9999999999","requires_name_on_account":false,"supports_partial_payments":true,"hours_to_fulfill":0,"account_number_digits":"10"}]})));
+  res.write(new Buffer(JSON.stringify({
+    "billers": [{
+      "id": 3261,
+      "name": "Adani Energy Limited",
+      "country": "IN",
+      "currency": "INR",
+      "biller_type": "Gas",
+      "bill_type": "account_number",
+      "can_check_balance": false,
+      "mask": "9999999999",
+      "requires_name_on_account": false,
+      "supports_partial_payments": true,
+      "hours_to_fulfill": 0,
+      "account_number_digits": "10"
+    }]
+  })));
   res.end();
 
   return __filename;

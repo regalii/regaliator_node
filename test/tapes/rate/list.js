@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
   res.statusCode = 200;
 
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -15,7 +15,7 @@ module.exports = function(req, res) {
   res.setHeader('Date', 'Tue, 22 Mar 2016 19:46:14 GMT');
   res.setHeader('Connection', 'close');
 
-  res.write(new Buffer(JSON.stringify({"MXN":16.488,"RD":43.7165})));
+  res.write(new Buffer(JSON.stringify({"MXN": 16.488, "RD": 43.7165})));
   res.end();
 
   return __filename;
