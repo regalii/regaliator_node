@@ -1,8 +1,26 @@
 {
   "name": "regaliator",
-  "version": "0.0.1-pre",
+  "version": "0.0.1",
   "description": "Nodejs client library for connecting to the Regalii API",
+  "keywords": "regalii payment api xdata xchange xpay",
+  "homepage": "https://www.regalii.com/api",
+  "author": "Geoffrey Roguelon <geoffrey@regalii.com>",
+  "license": "MIT",
+  "bugs": {
+    "url" : "https://github.com/regalii/regaliator_node/issues",
+    "email" : "contact@regalii.com"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/npm/npm.git"
+  },
+  "engines" : {
+    "node" : ">=4.7.2 <=7.4.0"
+  },
   "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
   "config": {
     "ndt": {
       "versions": [
@@ -10,11 +28,6 @@
       ]
     }
   },
-  "scripts": {
-    "test": "mocha --recursive"
-  },
-  "author": "Geoffrey Roguelon <geoffrey.roguelon@gmail.com>",
-  "license": "UNLICENSED",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
