@@ -22,14 +22,14 @@ const client = new Regaliator(
   processs.env.REGALII_SECRET
 );
 
-client.account().then(({ body }) => {
-  console.log(body)
+client.account().then((args) => {
+  console.log(args.body)
 });
 
 ```
 
 All methods of the `object` regaliator returns a `Promise`. In case of success,
-3 arguments are available:
+an object having the following keys:
 * `body`: The decoded JSON response ;
 * `req`: The request emitted ;
 * `res`: The response returned by server.
@@ -37,10 +37,8 @@ All methods of the `object` regaliator returns a `Promise`. In case of success,
 For instance, to get all arguments:
 
 ```js
-client.account().then(({ body, req, res }) => console.log(body));
+client.account().then((args) => console.log(args.body));
 ```
-
-The order doesn't matter, only names count.
 
 ## Examples
 
@@ -49,8 +47,8 @@ Examples of some common use-cases:
 ### Creating a credential bill
 
 ```js
-client.createCredentialsBill(12376, 'login', 'challengeme').then(({ body }) => {
-  console.log('Created bill ' + body.id);
+client.createCredentialsBill(12376, 'login', 'challengeme').then((args) => {
+  console.log('Created bill ' + args.body.id);
 });
 ```
 
