@@ -52,6 +52,32 @@ describe('Regaliator', () => {
       });
     });
 
+    describe('Delete Bill', () => {
+      let proxy = new ProxyServer(require('../tapes/bill/delete'));
+
+      before('Creating fake server', (done) => proxy.listen(done));
+      after('Killing fake server', (done) => proxy.close(done));
+
+      it('should return JSON body', () => {
+        return new Regaliator('http://localhost:4567', 'key', 'secret')
+          .deleteBill(5)
+          .then((res) => assert.propertyVal(res.body, 'id', 5));
+      });
+    });
+
+    describe('Bulk Refresh Bills', () => {
+      let proxy = new ProxyServer(require('../tapes/bill/bulk-refresh'));
+
+      before('Creating fake server', (done) => proxy.listen(done));
+      after('Killing fake server', (done) => proxy.close(done));
+
+      it('should return JSON body', () => {
+        return new Regaliator('http://localhost:4567', 'key', 'secret')
+          .bulkRefreshBills([111, 222, 333])
+          .then((res) => assert.propertyVal(res.body, 'message', 'Refresh in progress for 3 bills'));
+      });
+    });
+
     describe('Show bill with xdata', () => {
       let proxy = new ProxyServer(require('../tapes/bill/xdata'));
 
