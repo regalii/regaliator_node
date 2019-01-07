@@ -15,7 +15,7 @@
     "url" : "https://github.com/regalii/regaliator_node.git"
   },
   "engines" : {
-    "node" : ">=4.7.2 <=8.4.0"
+    "node" : ">=4.7.2 <=10.x.x"
   },
   "main": "index.js",
   "scripts": {
