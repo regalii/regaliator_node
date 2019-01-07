@@ -12,7 +12,7 @@
   },
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/npm/npm.git"
+    "url" : "https://github.com/regalii/regaliator_node.git"
   },
   "engines" : {
     "node" : ">=4.7.2 <=8.4.0"
